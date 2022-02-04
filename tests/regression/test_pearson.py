@@ -50,7 +50,7 @@ def _sk_pearsonr(preds, target):
         (_single_target_inputs2.preds, _single_target_inputs2.target),
     ],
 )
-class TestPearsonCorrcoef(MetricTester):
+class TestPearsonCorrCoef(MetricTester):
     atol = 1e-2
 
     @pytest.mark.parametrize("ddp", [True, False])
@@ -75,7 +75,7 @@ class TestPearsonCorrcoef(MetricTester):
         )
 
     # Pearson half + cpu does not work due to missing support in torch.sqrt
-    @pytest.mark.xfail(reason="PearsonCorrcoef metric does not support cpu + half precision")
+    @pytest.mark.xfail(reason="PearsonCorrCoef metric does not support cpu + half precision")
     def test_pearson_corrcoef_half_cpu(self, preds, target):
         self.run_precision_test_cpu(preds, target, PearsonCorrCoef, pearson_corrcoef)
 
